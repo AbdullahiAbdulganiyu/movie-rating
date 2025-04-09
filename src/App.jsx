@@ -10,7 +10,7 @@ function App() {
         <input
           type="text"
           placeholder="Search for movies..."
-          className="input-search"
+          className="search-input"
         />
       </form>
       <Home />
