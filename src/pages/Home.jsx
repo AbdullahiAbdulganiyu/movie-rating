@@ -1,6 +1,8 @@
+import { useState } from "react";
 import MovieCard from "../components/MovieCard";
 
 function Home() {
+  const [searchQuery, setSearchQuery] = useState("");
   const movies = [
     { id: 1, title: "John Wick", release_date: "2020" },
     { id: 1, title: "Terminator", release_date: "1997" },
@@ -13,6 +15,8 @@ function Home() {
       <form onSubmit={handlSearch} className="search-form">
         <input
           type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search for movies..."
           className="search-input"
         />
