@@ -4,7 +4,7 @@ import MovieCard from "./components/MovieCard";
 function App() {
   return (
     <>
-      <MovieCard />
+      <MovieCard movie={{ title: "Tim's Film", release_date: "2024" }} />
     </>
   );
 }
