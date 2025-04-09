@@ -9,7 +9,11 @@ function Home() {
     { id: 3, title: "The Matrix", release_date: "1998" },
   ];
 
-  const handlSearch = () => {};
+  const handlSearch = (e) => {
+    e.preventDefault();
+    alert(searchQuery);
+    setSearchQuery("");
+  };
   return (
     <div className="home">
       <form onSubmit={handlSearch} className="search-form">
