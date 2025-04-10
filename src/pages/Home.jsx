@@ -44,14 +44,18 @@ function Home() {
           Search
         </button>
       </form>
-      <div className="movie-grid">
-        {movies.map(
-          (movie) =>
-            movie.title.toLocaleLowerCase().startsWith(searchQuery) && (
-              <MovieCard movie={movie} key={movie.id} />
-            )
-        )}
-      </div>
+      {loading ? (
+        <div className="loading">Loading...</div>
+      ) : (
+        <div className="movie-grid">
+          {movies.map(
+            (movie) =>
+              movie.title.toLocaleLowerCase().startsWith(searchQuery) && (
+                <MovieCard movie={movie} key={movie.id} />
+              )
+          )}
+        </div>
+      )}
     </div>
   );
 }
