@@ -29,6 +29,7 @@ function Home() {
     e.preventDefault();
     alert(searchQuery);
     if (!searchQuery.trim()) return;
+    if (loading) return;
     setSearchQuery("");
   };
   return (
