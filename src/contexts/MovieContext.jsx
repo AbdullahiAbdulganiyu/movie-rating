@@ -21,5 +21,9 @@ export const MovieProvider = ({ children }) => {
   const addToFavorites = (movie) => {
     setFavorites((prev) => [...prev, movie]);
   };
+
+  const removeFromFavorites = (movieId) => {
+    setFavorites((prev) => prev.filter((movie) => movie.id !== movieId));
+  };
   return <MovieContext.Provider>{children}</MovieContext.Provider>;
 };
