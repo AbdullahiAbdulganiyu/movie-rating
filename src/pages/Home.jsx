@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
 import "../css/Home.css";
-import { getPopularMovies } from "../services/api";
+import { getPopularMovies, searchMovies } from "../services/api";
 
 function Home() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -25,11 +25,23 @@ function Home() {
     loadPopularMovies();
   }, []);
 
-  const handlSearch = (e) => {
+  const handlSearch = async (e) => {
     e.preventDefault();
 
     if (!searchQuery.trim()) return;
     if (loading) return;
+
+    setLoading(true);
+    try {
+      const searchResults = await searchMovies(searchQuery);
+      setMovies(searchResults);
+      setError(null);
+    } catch (err) {
+      console.log(err);
+      setError("Failed to search movie...");
+    } finally {
+      setLoading(false);
+    }
     setSearchQuery("");
   };
   return (
