@@ -28,6 +28,7 @@ function Home() {
   const handlSearch = (e) => {
     e.preventDefault();
     alert(searchQuery);
+    if (!searchQuery.trim()) return;
     setSearchQuery("");
   };
   return (
