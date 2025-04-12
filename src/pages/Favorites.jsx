@@ -1,6 +1,9 @@
+import { useMovieContext } from "../contexts/MovieContext";
 import "../css/Favorites.css";
 
 function Favorites() {
+  const { favorites } = useMovieContext();
+
   return (
     <div className="favorites-empty">
       <h2>No Favorite Movies yet</h2>
